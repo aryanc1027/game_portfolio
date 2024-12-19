@@ -1,29 +1,29 @@
 import React, { useRef } from 'react';
-import { Center, Cylinder, Sphere, Text3D } from "@react-three/drei";
-import { CylinderCollider, RigidBody } from "@react-three/rapier";
-import { useControls } from "leva";
-import { usePageStore } from "../store";
-import { Vector3 } from "three";
+import { Center, Cylinder, Sphere, Text3D } from '@react-three/drei';
+import { CylinderCollider, RigidBody } from '@react-three/rapier';
+import { useControls } from 'leva';
+import { usePageStore } from '../store';
+import { Vector3 } from 'three';
 
-export const KanaSpots = () => {
+export const Bubble = () => {
   const { level, currentStage, navigateTo } = usePageStore((state) => ({
     level: [
       [
-        { id: "projects", label: "⚛" },
-        { id: "about", label: "✨" },
-        { id: "experience", label: "⚡" },
-        { id: "technologies", label: "⚙" }
-      ]
+        { id: 'portfolio', label: '⚙' },
+        { id: 'about', label: '✨' },
+        { id: 'experience', label: '⚡' },
+        { id: 'contact', label: '☕' },
+      ],
     ],
     currentStage: 0,
     navigateTo: state.navigateTo,
   }));
 
   const navigationSymbols = {
-    projects: "⚛",  
-    about: "✨",    
-    experience: "⚡",
-    technologies: "⚙" 
+    portfolio: '⚙',
+    about: '✨',
+    experience: '⚡',
+    contact: '☕',
   };
 
   const config = useControls({
@@ -43,9 +43,9 @@ export const KanaSpots = () => {
     temporalDistortion: { value: 0, min: 0, max: 1, step: 0.01 },
     clearcoat: { value: 1, min: 0, max: 1 },
     attenuationDistance: { value: 1, min: 0, max: 10, step: 0.01 },
-    attenuationColor: "#ffffff",
-    color: "#efbeff",
-    bg: "#ffffff",
+    attenuationColor: '#ffffff',
+    color: '#efbeff',
+    bg: '#ffffff',
   });
 
   return (
@@ -57,22 +57,21 @@ export const KanaSpots = () => {
         >
           <group position-x={3.5} position-z={-3.5}>
             {/* Add text label above the sphere */}
-            <Center position-y={2.4} position-x={.1}>
+            <Center position-y={2.4} position-x={0.1}>
               <Text3D
-                font={"./fonts/font.json"}
+                font={'./fonts/font.json'}
                 size={0.4}
                 rotation-y={-(index / level[currentStage].length) * Math.PI * 2}
                 //rotation-z={-0.1}
               >
-                {item.id === "technologies" ? "TECH STACK" : item.id.toUpperCase()}
-                <meshStandardMaterial 
-                  color="#ebbe89" 
+                {item.id === 'about' ? 'ABOUT ME' : item.id.toUpperCase()}
+                <meshStandardMaterial
+                  color="#ebbe89"
                   metalness={0.5}
                   roughness={0.2}
                 />
               </Text3D>
             </Center>
-
 
             <RigidBody
               colliders={false}
@@ -89,7 +88,7 @@ export const KanaSpots = () => {
             </Sphere>
             <Center position-y={0.8}>
               <Text3D
-                font={"./fonts/font_main.json"}
+                font={'./fonts/font_main.json'}
                 size={0.8}
                 rotation-y={-(index / level[currentStage].length) * Math.PI * 2}
               >

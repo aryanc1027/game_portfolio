@@ -1,56 +1,99 @@
-import { ContactShadows, Environment, Text } from "@react-three/drei";
+import { ContactShadows, Environment, Text } from '@react-three/drei';
 import {
   CuboidCollider,
   CylinderCollider,
   RigidBody,
-} from "@react-three/rapier";
-import { usePageStore } from "../store";
-import { CharacterController } from "./CharacterController";
-import { KanaSpots } from "./KanaSpots";
-//import { Kicker } from "./Kicker";
-import { Stage } from "./Stage";
+} from '@react-three/rapier';
+import { usePageStore } from '../store';
+import { CharacterController } from './CharacterController';
+import { Bubble } from './Bubble';
+import { Stage } from './Stage';
+import { useState, useEffect, useRef } from 'react';
 
 export const Experience = () => {
-    const { currentSection } = usePageStore((state) => ({
-        currentSection: state.activeSection, // Note: using activeSection from pageStore
-      }));
+  const [hasPlayerMoved, setHasPlayerMoved] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const { currentSection } = usePageStore((state) => ({
+    currentSection: state.activeSection,
+  }));
+  //.log(currentSection);
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const movementKeys = [
+        'w',
+        'a',
+        's',
+        'd',
+        'ArrowUp',
+        'ArrowDown',
+        'ArrowLeft',
+        'ArrowRight',
+        'Space',
+      ];
+      if (movementKeys.includes(e.key.toLowerCase())) {
+        setHasPlayerMoved(true);
+        window.removeEventListener('keydown', handleKeyDown);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
-      const getTimeBasedGreeting = () => {
-        const hour = new Date().getHours();
-        
-        if (hour >= 5 && hour < 12) {
-          return "Good Morning!";
-        } else if (hour >= 12 && hour < 17) {
-          return "Good Afternoon!";
-        } else {
-          return "Good Evening!";
-        }
-      };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const getTimeBasedGreeting = () => {
+    const hour = new Date().getHours();
+
+    if (hour >= 5 && hour < 12) {
+      return 'Good Morning!';
+    } else if (hour >= 12 && hour < 17) {
+      return 'Good Afternoon!';
+    } else {
+      return 'Good Evening!';
+    }
+  };
 
   return (
     <>
-      {/* LIGHTS */}
       <Environment preset="sunset" />
       <directionalLight
         position={[5, 5, 5]}
         intensity={0.3}
         castShadow
-        color={"#9e69da"}
+        color={'#9e69da'}
       />
 
-      {/* BACKGROUND */}
+      {/* Movement Prompt */}
+      {!hasPlayerMoved && currentSection === 'portfolio' && (
+        <Text
+          position={[0, 3, -3]}
+          fontSize={window.innerWidth < 768 ? 0.25 : 0.4}
+          font="./fonts/Poppins-ExtraBold.ttf"
+        >
+          {window.innerWidth < 768
+            ? 'Hold Screen & Drag to Move'
+            : 'Use WASD or Arrow Keys to Move'}
+          <meshStandardMaterial color={'black'} opacity={1} transparent />
+        </Text>
+      )}
+      {/* Time-based Greeting */}
       <Text
         position={[0, -0.92, 0]}
-        fontSize={.7}
+        fontSize={0.7}
         rotation-x={-Math.PI / 2}
         font="./fonts/Poppins-ExtraBold.ttf"
       >
         {getTimeBasedGreeting()}
-        <meshStandardMaterial color={"white"} opacity={0.6} transparent />
+        <meshStandardMaterial color={'white'} opacity={0.6} transparent />
       </Text>
-
       <group position-y={-1}>
-
         {/* FLOOR */}
         <RigidBody colliders={false} type="fixed" name="void">
           <mesh position={[0, -0.9, 0]} rotation={[-Math.PI / 2, 0, 0]}>
@@ -66,7 +109,7 @@ export const Experience = () => {
           opacity={0.42}
           far={50}
           blur={0.8}
-          color={"#aa9acd"}
+          color={'#aa9acd'}
         />
         {/* STAGE */}
         <Stage position-y={-0.92} />
@@ -83,7 +126,7 @@ export const Experience = () => {
         <CharacterController />
 
         {/* NAVIGATION */}
-        <KanaSpots />
+        <Bubble />
       </group>
     </>
   );

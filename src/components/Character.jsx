@@ -1,10 +1,10 @@
-import { useAnimations, useGLTF } from "@react-three/drei";
-import React, { useEffect, useRef } from "react";
-import { usePageStore } from "../store";
+import { useAnimations, useGLTF } from '@react-three/drei';
+import React, { useEffect, useRef } from 'react';
+import { usePageStore } from '../store';
 
 export default function Character(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("./models/male/model.gltf");
+  const { nodes, materials, animations } = useGLTF('./models/male/model.gltf');
   const { actions } = useAnimations(animations, group);
 
   const characterState = usePageStore((state) => state.characterState);
@@ -27,7 +27,7 @@ export default function Character(props) {
           <skinnedMesh
             name="characterMedium"
             geometry={nodes.characterMedium.geometry}
-            material={materials["skin.001"]}
+            material={materials['skin.001']}
             skeleton={nodes.characterMedium.skeleton}
           />
         </group>
@@ -36,4 +36,4 @@ export default function Character(props) {
   );
 }
 
-useGLTF.preload("./models/male/model.gltf");
+useGLTF.preload('./models/male/model.gltf');

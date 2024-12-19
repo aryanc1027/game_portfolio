@@ -1,20 +1,20 @@
-import { create } from "zustand";
-import { subscribeWithSelector } from "zustand/middleware";
+import { create } from 'zustand';
+import { subscribeWithSelector } from 'zustand/middleware';
 
 export const pageStates = {
-  MENU: "MENU",
-  CONTENT: "CONTENT",
+  MENU: 'MENU',
+  CONTENT: 'CONTENT',
 };
 
 // Define the initial level structure
 const generateLevel = () => {
   return [
     [
-      { id: "projects", label: "Projects", correct: true },
-      { id: "about", label: "About Me", correct: true },
-      { id: "experience", label: "Experience", correct: true },
-      { id: "technologies", label: "Technologies", correct: true }
-    ]
+      { id: 'portfolio', label: 'Portfolio', correct: true },
+      { id: 'about', label: 'About Me', correct: true },
+      { id: 'experience', label: 'Experience', correct: true },
+      { id: 'contact', label: 'Contact', correct: true },
+    ],
   ];
 };
 
@@ -33,14 +33,14 @@ export const usePageStore = create(
         level,
         currentStage: 0,
         currentPage: pageStates.CONTENT,
-        activeSection: null
+        activeSection: null,
       });
     },
 
     navigateTo: (section) => {
       set({
         currentPage: pageStates.CONTENT,
-        activeSection: section
+        activeSection: section,
       });
     },
 
@@ -48,7 +48,7 @@ export const usePageStore = create(
       set({
         currentPage: pageStates.MENU,
         activeSection: null,
-        currentStage: 0
+        currentStage: 0,
       });
     },
 
@@ -56,22 +56,22 @@ export const usePageStore = create(
     content: {
       projects: {
         items: [],
-        description: ""
+        description: '',
       },
       about: {
-        bio: "",
-        details: ""
+        bio: '',
+        details: '',
       },
       experience: {
-        items: []
+        items: [],
       },
       technologies: {
-        skills: []
-      }
+        skills: [],
+      },
     },
 
     // Character animation state
-    characterState: "Idle",
-    setCharacterState: (characterState) => set({ characterState })
+    characterState: 'Idle',
+    setCharacterState: (characterState) => set({ characterState }),
   }))
 );

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
 
 #root {
   width: 100vw;
@@ -7,7 +7,7 @@
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: white;
   text-align: center;
   font-size: larger;
@@ -81,4 +81,62 @@ button:hover {
   background: #fffffff5;
   cursor: pointer;
   color: #000000b3;
+}
+
+/* Mobile devices (portrait) */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: medium;
+  }
+
+  button {
+    padding: 16px 32px;
+    font-size: 1.2rem;
+  }
+
+  .menu,
+  .scores {
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Different Screen Sizes */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  body {
+    font-size: large;
+  }
+
+  button {
+    padding: 20px 36px;
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  body {
+    font-size: larger;
+  }
+
+  .menu,
+  .scores {
+    gap: 24px;
+  }
+
+  button {
+    padding: 24px 42px;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .menu,
+  .scores {
+    gap: 8px;
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
 }
