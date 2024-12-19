@@ -6,6 +6,10 @@ export const Menu = () => {
     currentPage: state.currentPage,
   }));
 
+  const { setWelcomeAccepted } = usePageStore((state) => ({
+    setWelcomeAccepted: state.setWelcomeAccepted,
+  }));
+
   return (
     <>
       <div
@@ -21,7 +25,10 @@ export const Menu = () => {
         </div>
         <button
           disabled={currentPage !== pageStates.MENU}
-          onClick={() => navigateTo('portfolio')}
+          onClick={() => {
+            navigateTo('portfolio');
+            setWelcomeAccepted(true);
+          }}
         >
           Welcome!
         </button>

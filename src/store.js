@@ -73,5 +73,8 @@ export const usePageStore = create(
     // Character animation state
     characterState: 'Idle',
     setCharacterState: (characterState) => set({ characterState }),
+
+    isWelcomeAccepted: false,
+    setWelcomeAccepted: (accepted) => set({ isWelcomeAccepted: accepted }),
   }))
 );
