@@ -52,6 +52,8 @@ export const Bubble = () => {
     temporalDistortion: { value: 0, min: 0, max: 1, step: 0.01 },
     clearcoat: { value: 1, min: 0, max: 1 },
     attenuationDistance: { value: 1, min: 0, max: 10, step: 0.01 },
+    envMapIntensity: { value: 0.1, min: 0, max: 1, step: 0.1 }, // Add this
+
     attenuationColor: '#ffffff',
     color: '#b8d8fb',
     bg: '#ffffff',
@@ -121,7 +123,7 @@ export const Bubble = () => {
               </Cylinder>
             </RigidBody>
             <Sphere scale={[1.22, 1.22, 1.22]} position={[0, 0.8, 0]}>
-              <meshPhysicalMaterial {...config} />
+              <meshPhysicalMaterial {...config} transparent  />
             </Sphere>
             <Center position-y={0.8}>
               <Text3D
