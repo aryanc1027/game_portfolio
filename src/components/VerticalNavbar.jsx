@@ -12,7 +12,6 @@ export const VerticalNavbar = () => {
     return null;
   }
 
-
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -28,8 +27,8 @@ export const VerticalNavbar = () => {
             </Link>
           </li>
           <li className="navbar-item">
-            <Link to="/portfolio" className="navbar-link">
-              Portfolio ⚙️
+            <Link to="/projects" className="navbar-link">
+              Projects ⚙️
             </Link>
           </li>
           <li className="navbar-item">

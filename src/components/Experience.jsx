@@ -106,7 +106,7 @@ export const Experience = () => {
         <RigidBody colliders={false} type="fixed" name="void">
           <mesh position={[0, -0.9, 0]} rotation={[-Math.PI / 2, 0, 0]}>
             <planeGeometry args={[50, 50]} />
-            <meshBasicMaterial color="#20b2aa" toneMapped={false} />
+            <meshBasicMaterial color="#2a2f45" toneMapped={false} />
           </mesh>
           <CuboidCollider position={[0, -3.5, 0]} args={[50, 0.1, 50]} sensor />
         </RigidBody>

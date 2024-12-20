@@ -73,10 +73,10 @@ export const Bubble = () => {
                 rotation-y={
                   -(index / level[currentStage].length) * Math.PI * 2 +
                   (item.id === 'experience' || item.id === 'about'
-                    ? 0.4 
+                    ? 0.4
                     : item.id === 'projects' || item.id === 'contact'
-                      ? -0.4 
-                      : 0) 
+                      ? -0.4
+                      : 0)
                 }
                 position-x={
                   item.id === 'projects'

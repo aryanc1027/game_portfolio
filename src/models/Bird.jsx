@@ -1,9 +1,9 @@
-import { useEffect, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
-import { useAnimations, useGLTF } from "@react-three/drei";
+import { useEffect, useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { useAnimations, useGLTF } from '@react-three/drei';
 import React from 'react';
 
-const birdScene = '/models/bird/bird.glb'
+const birdScene = '/models/bird/bird.glb';
 
 export function Bird() {
   const birdRef = useRef();
@@ -11,7 +11,15 @@ export function Bird() {
   const { actions } = useAnimations(animations, birdRef);
 
   useEffect(() => {
-    actions["Take 001"].play();
+    actions['Take 001'].play();
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, []);
 
   const paths = [
@@ -28,38 +36,42 @@ export function Bird() {
       z: 1 + Math.cos(time * 1.5) * 0.3,
     }),
   ];
-  
-  const [selectedPath] = React.useState(() => paths[Math.floor(Math.random() * paths.length)]);
-  
+
+  const [selectedPath] = React.useState(
+    () => paths[Math.floor(Math.random() * paths.length)]
+  );
 
   const startingPositions = [
     [-27, 3, 1],
     [-20, -3, 2],
     [-25, 5, 0],
-    [-22, -5, 3]
+    [-22, -5, 3],
   ];
-  
 
-  const [startPosition] = React.useState(() => startingPositions[Math.floor(Math.random() * startingPositions.length)]);
-  
+  const [startPosition] = React.useState(
+    () =>
+      startingPositions[Math.floor(Math.random() * startingPositions.length)]
+  );
+
   useFrame(({ clock, camera }) => {
     const time = clock.getElapsedTime();
     const path = selectedPath(time);
-  
+
     birdRef.current.position.y = path.y;
     birdRef.current.position.z = path.z;
-  
-    if (birdRef.current.position.x > camera.position.x + 28) {
+
+    if (birdRef.current.position.x > camera.position.x + 32) {
       birdRef.current.rotation.y = Math.PI;
     } else if (birdRef.current.position.x < camera.position.x - 31) {
       birdRef.current.rotation.y = 0;
     }
-  
+
     if (birdRef.current.rotation.y === 0) {
       birdRef.current.position.x += 0.045;
     } else {
       birdRef.current.position.x -= 0.045;
     }
+    //console.log('current position', birdRef.current.position.x);
   });
 
   return (
@@ -67,6 +79,6 @@ export function Bird() {
       <primitive object={scene} />
     </mesh>
   );
-};
+}
 
 export default Bird;

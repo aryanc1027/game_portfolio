@@ -11,7 +11,7 @@ export default function Character(props) {
 
   useEffect(() => {
     // Keep animation transitions smooth
-    
+
     if (actions && actions[characterState]) {
       actions[characterState].reset().fadeIn(0.2).play();
       return () => {

@@ -1,5 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 import { KeyboardControls, Loader, useFont } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Physics } from '@react-three/rapier';
@@ -11,8 +16,8 @@ import { VerticalNavbar } from './components/VerticalNavbar';
 import { HorizontalNavbar } from './components/HorizonalNavbar.jsx';
 import { About } from './pages/About';
 import { Projects } from './pages/Projects';
-import  Contact  from './pages/Contact';
-import  Experience_Page  from './pages/Experience';
+import Contact from './pages/Contact';
+import Experience_Page from './pages/Experience';
 
 export const Controls = {
   forward: 'forward',
@@ -39,11 +44,7 @@ function AppContent() {
 
   return (
     <>
-      {location.pathname === '/' ? (
-         <VerticalNavbar />
-      ) : (
-        <HorizontalNavbar />
-      )}
+      {location.pathname === '/' ? <VerticalNavbar /> : <HorizontalNavbar />}
       <Routes>
         <Route
           path="/"
@@ -51,10 +52,10 @@ function AppContent() {
             <KeyboardControls map={map}>
               <Leva hidden />
               <Canvas shadows camera={{ position: [0, 20, 14], fov: 42 }}>
-                <color attach="background" args={['#20b2aa']} />
+                <color attach="background" args={['#2a2f45']} />
                 <Suspense fallback={null}>
                   <Physics>
-                    <Experience  />
+                    <Experience />
                   </Physics>
                 </Suspense>
               </Canvas>

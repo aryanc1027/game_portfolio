@@ -21,8 +21,8 @@ export const Menu = () => {
           <h1 className="text-4xl font-bold mb-2">Aryan Choudhary</h1>
           <p className="text-xl font-semibold">
             Computer Science and Applied Mathematics Student at UNC Chapel Hill
-  </p>
-</div>
+          </p>
+        </div>
 
         <button
           disabled={currentPage !== pageStates.MENU}
