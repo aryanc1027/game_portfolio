@@ -81,6 +81,14 @@ export const Experience = () => {
             ? 'Hold Screen & Drag to Move'
             : 'Use WASD or Arrow Keys to Move'}
           <meshStandardMaterial color={'black'} opacity={1} transparent />
+          <Text
+            position={[0, -0.4, 0]}
+            fontSize={window.innerWidth < 768 ? 0.17 : 0.27}
+            font="./fonts/Poppins-ExtraBold.ttf"
+          >
+            Run into the bubbles to explore
+            <meshStandardMaterial color={'white'} opacity={1} transparent />
+          </Text>
         </Text>
       )}
       {/* Time-based Greeting */}

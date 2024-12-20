@@ -50,6 +50,10 @@ function App() {
               </Canvas>
             }
           />
+          {/* <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} /> */}
         </Routes>
         <Loader />
         <Menu />
