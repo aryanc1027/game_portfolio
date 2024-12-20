@@ -44,7 +44,7 @@ export const Bubble = () => {
     clearcoat: { value: 1, min: 0, max: 1 },
     attenuationDistance: { value: 1, min: 0, max: 10, step: 0.01 },
     attenuationColor: '#ffffff',
-    color: '#efbeff',
+    color: '#b8d8fb',
     bg: '#ffffff',
   });
 
@@ -57,12 +57,40 @@ export const Bubble = () => {
         >
           <group position-x={3.5} position-z={-3.5}>
             {/* Add text label above the sphere */}
-            <Center position-y={2.4} position-x={0.1}>
+            <Center position-y={2.5} position-x={0.1}>
               <Text3D
                 font={'./fonts/font.json'}
                 size={0.4}
-                rotation-y={-(index / level[currentStage].length) * Math.PI * 2}
-                //rotation-z={-0.1}
+                rotation-y={
+                  -(index / level[currentStage].length) * Math.PI * 2 +
+                  (item.id === 'experience' || item.id === 'about'
+                    ? 0.4 
+                    : item.id === 'portfolio' || item.id === 'contact'
+                      ? -0.4 
+                      : 0) 
+                }
+                position-x={
+                  item.id === 'portfolio'
+                    ? 0
+                    : item.id === 'about'
+                      ? -1.4
+                      : item.id === 'experience'
+                        ? -0.2
+                        : item.id === 'contact'
+                          ? -0.4
+                          : 0
+                }
+                position-z={
+                  item.id === 'about'
+                    ? 0.06
+                    : item.id === 'experience'
+                      ? -1.3
+                      : item.id === 'contact'
+                        ? -0.2
+                        : item.id === 'portfolio'
+                          ? -0.4
+                          : 0
+                }
               >
                 {item.id === 'about' ? 'ABOUT ME' : item.id.toUpperCase()}
                 <meshStandardMaterial

@@ -1,10 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import {
-  KeyboardControls,
-  Loader,
-  useFont,
-} from '@react-three/drei';
+import { KeyboardControls, Loader, useFont } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Physics } from '@react-three/rapier';
 import { Leva } from 'leva';
@@ -41,18 +37,18 @@ function App() {
         <Leva hidden />
         <Navbar />
         <Routes>
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             element={
               <Canvas shadows camera={{ position: [0, 20, 14], fov: 42 }}>
-                <color attach="background" args={['#e3daf7']} />
+                <color attach="background" args={['#20b2aa']} />
                 <Suspense fallback={null}>
                   <Physics>
                     <Experience />
                   </Physics>
                 </Suspense>
               </Canvas>
-            } 
+            }
           />
         </Routes>
         <Loader />
