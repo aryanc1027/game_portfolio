@@ -11,12 +11,16 @@ export default function Character(props) {
 
   useEffect(() => {
     // Keep animation transitions smooth
-    actions[characterState].reset().fadeIn(0.2).play();
-    return () => {
-      actions[characterState].fadeOut(0.2);
-    };
-  }, [characterState]);
-
+    
+    if (actions && actions[characterState]) {
+      actions[characterState].reset().fadeIn(0.2).play();
+      return () => {
+        if (actions[characterState]) {
+          actions[characterState].fadeOut(0.2);
+        }
+      };
+    }
+  }, [characterState, actions]);
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">

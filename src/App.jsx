@@ -1,14 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { useState, useMemo } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { KeyboardControls, Loader, useFont } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Physics } from '@react-three/rapier';
 import { Leva } from 'leva';
-import { Suspense, useMemo } from 'react';
+import { Suspense } from 'react';
 import { Experience } from './components/Experience';
 import { Menu } from './components/Menu';
-import { Navbar } from './components/Navbar';
-import { Routes, Route } from 'react-router-dom';
+import { VerticalNavbar } from './components/VerticalNavbar';
+import { HorizontalNavbar } from './components/HorizonalNavbar.jsx';
+import Contact from './pages/Contact';
 
 export const Controls = {
   forward: 'forward',
@@ -18,7 +19,9 @@ export const Controls = {
   jump: 'jump',
 };
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+
   useFont.preload('./fonts/font.json');
   const map = useMemo(
     () => [
@@ -32,32 +35,41 @@ function App() {
   );
 
   return (
-    <Router>
-      <KeyboardControls map={map}>
-        <Leva hidden />
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
+    <>
+      {location.pathname === '/' ? (
+         <VerticalNavbar />
+      ) : (
+        <HorizontalNavbar />
+      )}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <KeyboardControls map={map}>
+              <Leva hidden />
               <Canvas shadows camera={{ position: [0, 20, 14], fov: 42 }}>
                 <color attach="background" args={['#20b2aa']} />
                 <Suspense fallback={null}>
                   <Physics>
-                    <Experience />
+                    <Experience  />
                   </Physics>
                 </Suspense>
               </Canvas>
-            }
-          />
-          {/* <Route path="/about" element={<About />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} /> */}
-        </Routes>
-        <Loader />
-        <Menu />
-      </KeyboardControls>
+              <Loader />
+              <Menu />
+            </KeyboardControls>
+          }
+        />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

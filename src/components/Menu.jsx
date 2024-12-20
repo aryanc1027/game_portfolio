@@ -17,12 +17,13 @@ export const Menu = () => {
           currentPage !== pageStates.MENU ? 'menu--hidden' : ''
         }`}
       >
-        <div>
-          <h1>Aryan Choudhary</h1>
-          <p>
+        <div className="text-center p-4">
+          <h1 className="text-4xl font-bold mb-2">Aryan Choudhary</h1>
+          <p className="text-xl font-semibold">
             Computer Science and Applied Mathematics Student at UNC Chapel Hill
-          </p>
-        </div>
+  </p>
+</div>
+
         <button
           disabled={currentPage !== pageStates.MENU}
           onClick={() => {

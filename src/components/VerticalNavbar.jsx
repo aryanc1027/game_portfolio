@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { usePageStore } from '../store';
 
-export const Navbar = () => {
+export const VerticalNavbar = () => {
   const { isWelcomeAccepted } = usePageStore((state) => ({
     isWelcomeAccepted: state.isWelcomeAccepted,
   }));
 
-  // Only render the navbar if welcome has been accepted
   if (!isWelcomeAccepted) {
     return null;
   }
+
 
   return (
     <nav className="navbar">
@@ -48,4 +48,4 @@ export const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default VerticalNavbar;
