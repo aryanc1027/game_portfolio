@@ -9,7 +9,10 @@ import { Experience } from './components/Experience';
 import { Menu } from './components/Menu';
 import { VerticalNavbar } from './components/VerticalNavbar';
 import { HorizontalNavbar } from './components/HorizonalNavbar.jsx';
-import Contact from './pages/Contact';
+import { About } from './pages/About';
+import { Projects } from './pages/Projects';
+import  Contact  from './pages/Contact';
+import  Experience_Page  from './pages/Experience';
 
 export const Controls = {
   forward: 'forward',
@@ -61,6 +64,9 @@ function AppContent() {
           }
         />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/experience" element={<Experience_Page />} />
       </Routes>
     </>
   );

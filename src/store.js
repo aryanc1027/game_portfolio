@@ -11,7 +11,7 @@ export const pageStates = {
 const generateLevel = () => {
   return [
     [
-      { id: 'portfolio', label: 'Portfolio', correct: true },
+      { id: 'projects', label: 'Projects', correct: true },
       { id: 'about', label: 'About Me', correct: true },
       { id: 'experience', label: 'Experience', correct: true },
       { id: 'contact', label: 'Contact', correct: true },

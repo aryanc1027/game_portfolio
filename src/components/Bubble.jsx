@@ -18,7 +18,7 @@ export const Bubble = () => {
   const { level, currentStage } = usePageStore((state) => ({
     level: [
       [
-        { id: 'portfolio', label: '⚙' },
+        { id: 'projects', label: '⚙' },
         { id: 'about', label: '✨' },
         { id: 'experience', label: '⚡' },
         { id: 'contact', label: '☕' },
@@ -29,7 +29,7 @@ export const Bubble = () => {
   }));
 
   const navigationSymbols = {
-    portfolio: '⚙',
+    projects: '⚙',
     about: '✨',
     experience: '⚡',
     contact: '☕',
@@ -74,12 +74,12 @@ export const Bubble = () => {
                   -(index / level[currentStage].length) * Math.PI * 2 +
                   (item.id === 'experience' || item.id === 'about'
                     ? 0.4 
-                    : item.id === 'portfolio' || item.id === 'contact'
+                    : item.id === 'projects' || item.id === 'contact'
                       ? -0.4 
                       : 0) 
                 }
                 position-x={
-                  item.id === 'portfolio'
+                  item.id === 'projects'
                     ? 0
                     : item.id === 'about'
                       ? -1.4
@@ -96,7 +96,7 @@ export const Bubble = () => {
                       ? -1.3
                       : item.id === 'contact'
                         ? -0.2
-                        : item.id === 'portfolio'
+                        : item.id === 'projects'
                           ? -0.4
                           : 0
                 }
