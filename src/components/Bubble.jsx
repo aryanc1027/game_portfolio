@@ -4,9 +4,18 @@ import { CylinderCollider, RigidBody } from '@react-three/rapier';
 import { useControls } from 'leva';
 import { usePageStore } from '../store';
 import { Vector3 } from 'three';
+import { useNavigate } from 'react-router-dom';
 
 export const Bubble = () => {
-  const { level, currentStage, navigateTo } = usePageStore((state) => ({
+  const navigate = useNavigate();
+  const { navigateTo } = usePageStore();
+
+  const handleCollision = (section) => {
+    navigateTo(section);
+    navigate(`/${section}`);
+  };
+
+  const { level, currentStage } = usePageStore((state) => ({
     level: [
       [
         { id: 'portfolio', label: '⚙' },
@@ -104,7 +113,7 @@ export const Bubble = () => {
             <RigidBody
               colliders={false}
               type="fixed"
-              onCollisionEnter={() => navigateTo(item.id)}
+              onCollisionEnter={() => handleCollision(item.id)}
             >
               <CylinderCollider args={[0.25 / 2, 1]} />
               <Cylinder scale={[1, 0.25, 1]}>
