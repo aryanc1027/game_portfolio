@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const HorizontalNavbar = () => {
   return (
-    <nav className="p-4 shadow-lg w-full">
+    <nav className="p-4 shadow-lg w-full bg-[#20b2aa]">
       <div className="flex justify-between w-full">
         <Link to="/" className="text-white text-xl font-bold hover:text-[#9e69da]">
           Home 🏠
