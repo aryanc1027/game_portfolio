@@ -123,7 +123,7 @@ export const Bubble = () => {
               </Cylinder>
             </RigidBody>
             <Sphere scale={[1.22, 1.22, 1.22]} position={[0, 0.8, 0]}>
-              <meshPhysicalMaterial {...config} transparent  />
+              <meshPhysicalMaterial {...config} transparent />
             </Sphere>
             <Center position-y={0.8}>
               <Text3D

@@ -26,6 +26,13 @@ import sql from './sql.svg';
 import sqlalchemy from './sqlalchemy.svg';
 import tailwindcss from './tailwindcss.svg';
 import typescript from './typescript.svg';
+import brain from './brain.svg';
+import mood from './mood.svg';
+import news from './news.svg';
+import camera from './camera.svg';
+import linkedin from './linkedin.svg';
+import room from './room.svg';
+import arrow from './arrow.svg';
 
 export {
   angular,
@@ -56,4 +63,11 @@ export {
   sqlalchemy,
   tailwindcss,
   typescript,
+  brain,
+  mood,
+  news,
+  camera,
+  linkedin,
+  room,
+  arrow,
 };

@@ -28,6 +28,13 @@ import {
   sqlalchemy,
   tailwindcss,
   typescript,
+  brain,
+  mood,
+  news,
+  camera,
+  linkedin,
+  room,
+  arrow,
 } from '../assets/icons';
 
 export const skills = [
@@ -219,14 +226,53 @@ export const experiences = [
 ];
 
 export const projects = [
-  {},
+  {
+    iconUrl: brain,
+    theme: 'btn-back-blue',
+    name: 'Synapse AI',
+    description:
+      'Developed a full-stack web application to enhance personalized learning by leveraging AI-powered flashcard generation from user-provided text or PDFs. The system enables users to improve retention and track progress dynamically, offering a seamless and secure learning experience.',
+    link: 'https://github.com/aryanc1027/SynapseAI',
+  },
+  {
+    iconUrl: mood,
+    theme: 'btn-back-blue',
+    name: 'MoodCast',
+    description:
+      'Developed a web application that combines weather data with music recommendations, creating a unique user experience. The application integrates the OpenWeatherMap API to fetch real-time weather information for any city globally, and the Spotify API to suggest playlists based on the current weather conditions..',
+    link: 'https://github.com/aryanc1027/MoodCast',
+  },
+  {
+    iconUrl: news,
+    theme: 'btn-back-blue',
+    name: 'CS-XL',
+    description:
+      'Created a dynamic newsfeed system for the CS-XL website using Angular and TypeScript on the front-end, enabling users to view and interact with a stream of updates and content related to the university, used by over 1,000 students',
+    link: 'https://github.com/comp423-24s/csxl-final-team-b4',
+  },
+  {
+    iconUrl: camera,
+    theme: 'btn-back-blue',
+    name: 'Image Processing Pipeline',
+    description:
+      'Engineered an image processing pipeline to convert raw camera images into high-quality, display-ready images through steps like linearization, white balancing, demosaicing, color correction, brightness adjustment, gamma encoding, and compression. Built a simple camera obscura for hands-on experience in computational imaging and digital photography.',
+    link: 'https://github.com/aryanc1027/790_ISP',
+  },
 
   {
-    iconUrl: angular,
+    iconUrl: linkedin,
     theme: 'btn-back-blue',
-    name: 'Car Finding App',
+    name: 'Linkedin Recruiter Web Scraper',
     description:
-      'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
-    link: 'https://github.com/aryanc1027/project_next13_car_showcase',
+      'Developed a LinkedIn Recruiter Data Extraction platform using Python, integrating Playwright, Beautiful Soup, and Selenium for seamless data scraping. Implemented NLP for intelligent data formatting and utilized pandas for clear data presentation in Excel and SQL, streamlining recruitment insights.',
+    link: 'https://github.com/aryanc1027/Linkedin_Recruiter_Webscraper',
+  },
+  {
+    iconUrl: room,
+    theme: 'btn-back-blue',
+    name: 'Personal Website (old)',
+    description:
+      'Designed a personal website using Three.js, Blender, and GSAP, featuring immersive 3D visuals, dynamic lighting, and interactive camera controls. Integrated HTML, CSS, and Node.js for seamless functionality and a user-friendly interface.',
+    link: 'https://aryan-room-portfolio.vercel.app/',
   },
 ];
