@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -29,6 +29,22 @@ export const Controls = {
 
 function AppContent() {
   const location = useLocation();
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    if (isMobile) {
+      window.location.href = 'https://aryan-room-portfolio.vercel.app/';
+    }
+  }, [isMobile]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useFont.preload('./fonts/font.json');
   const map = useMemo(
