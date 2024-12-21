@@ -24,15 +24,15 @@ export function Bird() {
 
   const paths = [
     (time) => ({
-      y: 3 + Math.sin(time * 0.5) * 0.5,
+      y: 0 + Math.sin(time * 0.5) * 0.5,
       z: 1 + Math.cos(time * 0.5) * 0.5,
     }),
     (time) => ({
-      y: 3 + Math.cos(time * 0.7) * 0.5,
+      y: 0 + Math.cos(time * 0.7) * 0.5,
       z: 1 + Math.sin(time * 0.7) * 0.5,
     }),
     (time) => ({
-      y: 3 + Math.sin(time * 1.2) * 0.3,
+      y: 0 + Math.sin(time * 1.2) * 0.3,
       z: 1 + Math.cos(time * 1.5) * 0.3,
     }),
   ];
@@ -42,10 +42,10 @@ export function Bird() {
   );
 
   const startingPositions = [
-    [-28, 3, 1],
-    [-28, -3, 2],
-    [-28, 5, 0],
-    [-28, -5, 3],
+    [-28, -8, 1],
+    [-28, -8, 2],
+    [-28, -8, 0],
+    [-28, -8, 3],
   ];
 
   const [startPosition] = React.useState(

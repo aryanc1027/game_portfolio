@@ -7,7 +7,6 @@ export const pageStates = {
   CONTENT: 'CONTENT',
 };
 
-// Define the initial level structure
 const generateLevel = () => {
   return [
     [
