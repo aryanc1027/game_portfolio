@@ -99,7 +99,7 @@ const Contact = () => {
         </div>
 
         {/* Subtle line and old portfolio link underneath */}
-        <div className="text-center text-white/60 text-sm border-t border-white/10 pt-4">
+        {/* <div className="text-center text-white/60 text-sm border-t border-white/10 pt-4">
           <a
             href="https://aryan-room-portfolio.vercel.app/"
             target="_blank"
@@ -108,7 +108,7 @@ const Contact = () => {
           >
             View previous portfolio →
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
