@@ -42,10 +42,10 @@ export function Bird() {
   );
 
   const startingPositions = [
-    [-27, 3, 1],
-    [-20, -3, 2],
-    [-25, 5, 0],
-    [-22, -5, 3],
+    [-28, 3, 1],
+    [-28, -3, 2],
+    [-28, 5, 0],
+    [-28, -5, 3],
   ];
 
   const [startPosition] = React.useState(
