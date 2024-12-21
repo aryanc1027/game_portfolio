@@ -27,20 +27,20 @@ export function Monster() {
     monsterRef.current.position.x +=
       pathRef.current.speed * pathRef.current.direction;
 
-    if (monsterRef.current.position.x >= 30) {
+    if (monsterRef.current.position.x >= 34) {
       pathRef.current.direction = -1;
       monsterRef.current.rotation.y = -Math.PI / 2;
-    } else if (monsterRef.current.position.x <= -30) {
+    } else if (monsterRef.current.position.x <= -37) {
       pathRef.current.direction = 1;
       monsterRef.current.rotation.y = Math.PI / 2;
     }
-    console.log(monsterRef.current.position.x);
+    //console.log(monsterRef.current.position.x);
   });
 
   return (
     <mesh
       ref={monsterRef}
-      position={[-30, -4, 0]}
+      position={[-37, -4, 0]}
       scale={[0.5, 0.5, 0.5]}
       rotation={[0, Math.PI / 2, 0]}
     >

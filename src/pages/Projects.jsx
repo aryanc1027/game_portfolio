@@ -32,7 +32,7 @@ export const Projects = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="glass-card mb-16 p-8 text-center border border-white/5 bg-white/5">
           <p className="text-white/90 text-2xl font-bold tracking-wide">
-            Projects I've Worked On
+            Projects I've Worked On:
           </p>
         </div>
 
