@@ -27,7 +27,7 @@ export function Monster() {
     monsterRef.current.position.x +=
       pathRef.current.speed * pathRef.current.direction;
 
-    if (monsterRef.current.position.x >= 34) {
+    if (monsterRef.current.position.x >= 37) {
       pathRef.current.direction = -1;
       monsterRef.current.rotation.y = -Math.PI / 2;
     } else if (monsterRef.current.position.x <= -37) {
