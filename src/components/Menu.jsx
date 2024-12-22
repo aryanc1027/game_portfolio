@@ -36,7 +36,7 @@ export const Menu = () => {
 
         <div>
           <p>
-            Connect with me on{' '}
+            Add me on{' '}
             <a
               href="https://github.com/aryanc1027"
               target="_blank"
