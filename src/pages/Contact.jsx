@@ -98,17 +98,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Subtle line and old portfolio link underneath */}
-        {/* <div className="text-center text-white/60 text-sm border-t border-white/10 pt-4">
-          <a
-            href="https://aryan-room-portfolio.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#9e69da] transition-colors"
-          >
-            View previous portfolio →
-          </a>
-        </div> */}
+        
       </div>
     </div>
   );

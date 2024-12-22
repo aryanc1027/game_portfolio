@@ -103,7 +103,7 @@ export const Bubble = () => {
                           : 0
                 }
               >
-                {item.id === 'about' ? 'ABOUT ME' : item.id.toUpperCase()}
+                {item.id.toUpperCase()}
                 <meshStandardMaterial
                   color="#ebbe89"
                   metalness={0.5}

@@ -6,9 +6,8 @@ export const About = () => {
       {/* Header Section - Centered */}
       <div className="text-center mb-32">
         <h1 className="text-6xl font-bold mb-8">
-          Hey there! I'm{' '}
           <span className="bg-gradient-to-r from-[#4d9cd9] to-[#9e69da] text-transparent bg-clip-text">
-            Aryan Choudhary
+            Hey there! I'm Aryan Choudhary
           </span>
         </h1>
         <p className="text-white/70 text-xl max-w-3xl mx-auto">

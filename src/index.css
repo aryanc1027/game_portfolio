@@ -87,8 +87,6 @@ button:hover {
 }
 
 .glass-card {
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
   transition: all 0.3s ease;
 }
 

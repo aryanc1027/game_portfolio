@@ -30,7 +30,8 @@ export const Experience = () => {
         'ArrowRight',
         'Space',
       ];
-      if (movementKeys.includes(e.key.toLowerCase())) {
+      const key = e.key.startsWith('Arrow') ? e.key : e.key.toLowerCase();
+      if (movementKeys.includes(key)) {
         setHasPlayerMoved(true);
         window.removeEventListener('keydown', handleKeyDown);
       }

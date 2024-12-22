@@ -10,8 +10,8 @@ import '../index.css';
 export const Experience = () => {
   return (
     <section className="min-h-screen bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] px-6 py-16 relative">
-      {/* Ambient background effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(66,71,91,0.3),transparent_50%)]"></div>
+      {/* Remove or comment out this div to remove the hue effect */}
+      {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(66,71,91,0.3),transparent_50%)]"></div> */}
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="glass-card mb-16 p-8 text-center border border-white/5 bg-white/5">
@@ -24,8 +24,8 @@ export const Experience = () => {
           {skills.map((skill) => (
             <div key={skill.name} className="skill-bubble">
               <div
-                className="relative aspect-square rounded-2xl bg-white/5 
-                            backdrop-blur-md border border-white/10
+                className="relative aspect-square rounded-2xl bg-[#1a1f35]/80 
+                            border border-white/10
                             hover:bg-white/10 transition-all duration-500 p-6
                             shadow-[0_8px_30px_rgb(0,0,0,0.12)]
                             hover:shadow-[0_15px_30px_rgba(59,130,246,0.1)]
