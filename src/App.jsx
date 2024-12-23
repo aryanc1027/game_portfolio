@@ -18,6 +18,8 @@ import { About } from './pages/About';
 import { Projects } from './pages/Projects';
 import Contact from './pages/Contact';
 import Experience_Page from './pages/Experience';
+import { Analytics } from "@vercel/analytics/react"
+
 
 export const Controls = {
   forward: 'forward',
@@ -93,6 +95,7 @@ function App() {
   return (
     <Router>
       <AppContent />
+      <Analytics />
     </Router>
   );
 }
