@@ -23,12 +23,12 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="relative bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] min-h-screen md:h-screen">
-      <div className="absolute top-0 left-0 w-full h-full z-[1]">
+    <div className="relative bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] min-h-screen md:h-screen overflow-auto">
+      <div className="absolute top-0 left-0 w-full h-full z-[1] bg-[#1a1f35]">
         <Canvas
           orthographic
           camera={{
-            zoom: 50,
+            zoom: window.innerWidth < 768 ? 30 : 50,
             position: [0, 0, 100],
             near: 0.1,
             far: 1000,
@@ -42,7 +42,7 @@ const Contact = () => {
         </Canvas>
       </div>
 
-      <div className="relative z-[2] w-full h-full py-16 md:py-0 px-4 md:px-8 flex items-start md:items-center justify-center">
+      <div className="relative z-[3] w-full h-full py-20 md:py-0 px-4 md:px-8 flex items-start md:items-center justify-center">
         <div className="max-w-4xl w-full backdrop-blur-sm bg-white/10 rounded-3xl p-6 md:p-12 text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 md:mb-12 text-center">Let's Connect!</h1>
 
