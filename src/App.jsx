@@ -19,6 +19,9 @@ import { Projects } from './pages/Projects';
 import Contact from './pages/Contact';
 import Experience_Page from './pages/Experience';
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
+
+
 
 
 export const Controls = {
@@ -96,6 +99,7 @@ function App() {
     <Router>
       <AppContent />
       <Analytics />
+      <SpeedInsights />
     </Router>
   );
 }
