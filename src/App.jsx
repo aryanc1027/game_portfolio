@@ -34,22 +34,22 @@ export const Controls = {
 
 function AppContent() {
   const location = useLocation();
-  //const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [cameraSettings, setCameraSettings] = useState({
+    position: [0, 20, window.innerWidth < 768 ? 20 : 14],
+    fov: window.innerWidth < 768 ? 50 : 42
+  });
 
-  // useEffect(() => {
-  //   if (isMobile) {
-  //     window.location.href = 'https://aryan-room-portfolio.vercel.app/';
-  //   }
-  // }, [isMobile]);
+  useEffect(() => {
+    const handleResize = () => {
+      setCameraSettings({
+        position: [0, 20, window.innerWidth < 768 ? 20 : 14],
+        fov: window.innerWidth < 768 ? 50 : 42
+      });
+    };
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsMobile(window.innerWidth < 768);
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-  //   return () => window.removeEventListener('resize', handleResize);
-  // }, []);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useFont.preload('./fonts/font.json');
   const map = useMemo(
@@ -72,7 +72,7 @@ function AppContent() {
           element={
             <KeyboardControls map={map}>
               <Leva hidden />
-              <Canvas shadows camera={{ position: [0, 20, 14], fov: 42 }}>
+              <Canvas shadows camera={cameraSettings}>
                 <color attach="background" args={['#2a2f45']} />
                 <Suspense fallback={null}>
                   <Physics>

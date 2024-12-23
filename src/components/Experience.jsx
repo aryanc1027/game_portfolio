@@ -11,12 +11,13 @@ import { Stage } from './Stage';
 import { useState, useEffect, useRef } from 'react';
 
 export const Experience = () => {
-  const [hasPlayerMoved, setHasPlayerMoved] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const { currentSection } = usePageStore((state) => ({
+  const { currentSection, hasPlayerMoved, setHasPlayerMoved } = usePageStore((state) => ({
     currentSection: state.activeSection,
+    hasPlayerMoved: state.hasPlayerMoved,
+    setHasPlayerMoved: state.setHasPlayerMoved
   }));
-  //.log(currentSection);
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       const movementKeys = [
@@ -33,12 +34,12 @@ export const Experience = () => {
       const key = e.key.startsWith('Arrow') ? e.key : e.key.toLowerCase();
       if (movementKeys.includes(key)) {
         setHasPlayerMoved(true);
-        window.removeEventListener('keydown', handleKeyDown);
       }
     };
+
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [setHasPlayerMoved]);
 
   useEffect(() => {
     const handleResize = () => {

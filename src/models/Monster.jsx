@@ -40,7 +40,7 @@ export function Monster() {
   return (
     <mesh
       ref={monsterRef}
-      position={[-37, -4, 0]}
+      position={[-36, -4, 0]}
       scale={[0.5, 0.5, 0.5]}
       rotation={[0, Math.PI / 2, 0]}
     >

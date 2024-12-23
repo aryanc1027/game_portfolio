@@ -248,7 +248,7 @@ export const projects = [
     name: 'CS-XL',
     description:
       'Created a dynamic newsfeed system for the CS-XL website using Angular and TypeScript on the front-end, enabling users to view and interact with a stream of updates and content related to the university.',
-    link: 'https://github.com/comp423-24s/csxl-final-team-b4',
+    link: 'https://github.com/aryanc1027/csxl-final-team-b4',
   },
   {
     iconUrl: camera,

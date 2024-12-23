@@ -76,5 +76,8 @@ export const usePageStore = create(
 
     isWelcomeAccepted: false,
     setWelcomeAccepted: (accepted) => set({ isWelcomeAccepted: accepted }),
+
+    hasPlayerMoved: false,
+    setHasPlayerMoved: (value) => set({ hasPlayerMoved: value }),
   }))
 );
