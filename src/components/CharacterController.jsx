@@ -9,21 +9,27 @@ import * as THREE from 'three';
 
 const JUMP_FORCE = 0.5;
 const MOVEMENT_SPEED = 0.1;
+const MOBILE_MOVEMENT_SPEED = 0.04;
+const MOBILE_MAX_SPEED = 0.043;
 const MAX_VEL = 3;
 const RUN_VEL = 1.5;
 const TOUCH_SENSITIVITY = 0.05;
+const JOYSTICK_RADIUS = 50;
+const DEAD_ZONE = 10;
 
 export const CharacterController = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState({ x: 0, z: 0 });
   const [touchMove, setTouchMove] = useState({ x: 0, z: 0 });
+  const [touchDirection, setTouchDirection] = useState({ x: 0, z: 0 });
   const [isDragging, setIsDragging] = useState(false);
 
-  const { characterState, setCharacterState, currentPage } = usePageStore(
+  const { characterState, setCharacterState, currentPage, setHasPlayerMoved } = usePageStore(
     (state) => ({
       characterState: state.characterState,
       setCharacterState: state.setCharacterState,
       currentPage: state.currentPage,
+      setHasPlayerMoved: state.setHasPlayerMoved
     })
   );
 
@@ -47,51 +53,83 @@ export const CharacterController = () => {
 
   // Touch event handlers
   const handleTouchStart = (event) => {
+    if (event.target.tagName === 'BUTTON' || 
+        event.target.closest('button') || 
+        event.target instanceof HTMLButtonElement) {
+      return;
+    }
+    
+    event.preventDefault();
     const touch = event.touches[0];
     setTouchStart({ x: touch.clientX, z: touch.clientY });
     setTouchMove({ x: touch.clientX, z: touch.clientY });
     setIsDragging(true);
+    setHasPlayerMoved(true);
   };
 
   const handleTouchMove = (event) => {
     if (!isDragging) return;
+    
+    event.preventDefault();
     const touch = event.touches[0];
     setTouchMove({ x: touch.clientX, z: touch.clientY });
+    
+    const deltaX = touch.clientX - touchStart.x;
+    const deltaZ = touch.clientY - touchStart.z;
+    
+    const length = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
+    if (length > 0) {
+      setTouchDirection({
+        x: deltaX / length,
+        z: deltaZ / length,
+      });
+    }
   };
 
   const handleTouchEnd = () => {
     setIsDragging(false);
+    setTouchDirection({ x: 0, z: 0 });
   };
 
-  // Add touch event listeners
+  // Update the useEffect to only prevent default on the canvas
   useEffect(() => {
     if (isMobile) {
-      window.addEventListener('touchstart', handleTouchStart);
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', handleTouchEnd);
+      const canvas = document.querySelector('canvas');
+      if (canvas) {
+        canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+        canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
+        canvas.addEventListener('touchend', handleTouchEnd);
+      }
 
       return () => {
-        window.removeEventListener('touchstart', handleTouchStart);
-        window.removeEventListener('touchmove', handleTouchMove);
-        window.removeEventListener('touchend', handleTouchEnd);
+        if (canvas) {
+          canvas.removeEventListener('touchstart', handleTouchStart);
+          canvas.removeEventListener('touchmove', handleTouchMove);
+          canvas.removeEventListener('touchend', handleTouchEnd);
+        }
       };
     }
-  }, [isMobile]);
+  }, [isMobile, isDragging]);
 
   useFrame((state, delta) => {
     const impulse = { x: 0, y: 0, z: 0 };
     let changeRotation = false;
 
     if (isMobile && isDragging) {
-      // Mobile controls
-      const deltaX = (touchMove.x - touchStart.x) * TOUCH_SENSITIVITY;
-      const deltaZ = (touchMove.z - touchStart.z) * TOUCH_SENSITIVITY;
+      // Calculate distance from touch start to current position
+      const deltaX = touchMove.x - touchStart.x;
+      const deltaZ = touchMove.z - touchStart.z;
+      const distance = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
+      
+      // Normalize the speed between MOBILE_MOVEMENT_SPEED and MOBILE_MAX_SPEED
+      const speed = Math.min(
+        MOBILE_MOVEMENT_SPEED + (distance / JOYSTICK_RADIUS) * 0.02, 
+        MOBILE_MAX_SPEED
+      );
 
-      if (Math.abs(deltaX) > 0.001 || Math.abs(deltaZ) > 0.001) {
-        impulse.x = deltaX;
-        impulse.z = deltaZ;
-        changeRotation = true;
-      }
+      impulse.x = touchDirection.x * speed;
+      impulse.z = touchDirection.z * speed;
+      changeRotation = touchDirection.x !== 0 || touchDirection.z !== 0;
     } else {
       // Keyboard controls
       const linvel = rigidbody.current.linvel();

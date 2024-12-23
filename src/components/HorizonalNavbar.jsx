@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export const HorizontalNavbar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,47 +17,100 @@ export const HorizontalNavbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) { // Adjust this breakpoint as needed
+        document.body.style.paddingTop = '60px'; // Adjust this value to match your navbar height
+      } else {
+        document.body.style.paddingTop = '10px';
+      }
+
+    };
+
+    handleResize(); // Call once to set initial state
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      document.body.style.paddingTop = '0px';
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const navItems = [
+    { to: "/about", text: "About ✨" },
+    { to: "/projects", text: "Projects ⚙️" },
+    { to: "/experience", text: "Experience ⚡" },
+    { to: "/contact", text: "Contact ☕" },
+  ];
+
   return (
-    <nav
-      className={`p-4 w-full bg-[#1a1f35] fixed top-0 left-0 z-50 transition-transform duration-300 ${
-        visible ? 'translate-y-0' : '-translate-y-full'
-      }`}
-    >
-      <div className="flex justify-between w-full">
-        <Link
-          to="/"
-          className="text-white text-xl font-bold hover:text-[#9e69da]"
-        >
-          Home 🏠
-        </Link>
-        <div>
+    <>
+      <nav
+        className={`p-4 w-screen max-w-full bg-[#1a1f35] fixed top-0 left-0 z-[100] transition-transform duration-300 ${
+          visible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <div className="flex justify-between items-center w-full relative z-[102]">
           <Link
-            to="/about"
-            className="text-white hover:text-[#9e69da] font-medium px-8"
+            to="/"
+            className="text-white text-xl font-bold hover:text-[#9e69da]"
           >
-            About ✨
+            Home 🏠
           </Link>
-          <Link
-            to="/projects"
-            className="text-white hover:text-[#9e69da] font-medium px-8"
+          <div className="hidden md:flex">
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.to}
+                className="text-white hover:text-[#9e69da] font-medium px-4 lg:px-8"
+              >
+                {item.text}
+              </Link>
+            ))}
+          </div>
+          <button
+            className="md:hidden text-white focus:outline-none flex flex-col gap-1.5 bg-transparent border-none p-0 z-[102]"
+            onClick={toggleMenu}
+            style={{ background: 'none' }}
           >
-            Projects ⚙️
-          </Link>
-          <Link
-            to="/experience"
-            className="text-white hover:text-[#9e69da] font-medium px-8"
-          >
-            Experience ⚡
-          </Link>
-          <Link
-            to="/contact"
-            className="text-white hover:text-[#9e69da] font-medium px-8"
-          >
-            Contact ☕
-          </Link>
+            {isMenuOpen ? (
+              <div className="relative w-6 h-6">
+                <div className="absolute w-6 h-0.5 bg-white top-1/2 left-0 rotate-45"></div>
+                <div className="absolute w-6 h-0.5 bg-white top-1/2 left-0 -rotate-45"></div>
+              </div>
+            ) : (
+              <>
+                <div className="w-6 h-0.5 bg-white"></div>
+                <div className="w-6 h-0.5 bg-white"></div>
+                <div className="w-6 h-0.5 bg-white"></div>
+              </>
+            )}
+          </button>
         </div>
-      </div>
-    </nav>
+        <div 
+          className={`${
+            isMenuOpen ? 'block' : 'hidden'
+          } md:hidden fixed top-0 left-0 w-screen h-screen bg-[#1a1f35] flex items-center justify-center z-[101]`}
+        >
+          <div className="flex flex-col items-center space-y-6">
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.to}
+                className="text-white text-2xl hover:text-[#9e69da] font-medium transition-all duration-300 block py-1"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.text}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </nav>
+    </>
   );
 };
 

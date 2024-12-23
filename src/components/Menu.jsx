@@ -18,13 +18,14 @@ export const Menu = () => {
         }`}
       >
         <div className="text-center p-4">
-          <h1 className="text-4xl font-bold mb-2">Aryan Choudhary</h1>
-          <p className="text-xl font-semibold">
+          <h1 className="text-2xl md:text-4xl font-bold mb-2">Aryan Choudhary</h1>
+          <p className="text-lg md:text-xl font-semibold">
             Computer Science and Applied Mathematics Student at UNC Chapel Hill
           </p>
         </div>
 
         <button
+          className="px-6 py-2 text-lg md:text-xl my-4"
           disabled={currentPage !== pageStates.MENU}
           onClick={() => {
             navigateTo('portfolio');
@@ -34,7 +35,7 @@ export const Menu = () => {
           Welcome!
         </button>
 
-        <div>
+        <div className="text-base md:text-lg p-2">
           <p>
             Add me on{' '}
             <a
