@@ -10,33 +10,22 @@ export default function Character(props) {
   const characterState = usePageStore((state) => state.characterState);
 
   useEffect(() => {
-    // Keep animation transitions smooth
-
-    if (actions && actions[characterState]) {
-      actions[characterState].reset().fadeIn(0.2).play();
-      return () => {
-        if (actions[characterState]) {
-          actions[characterState].fadeOut(0.2);
-        }
-      };
-    }
-  }, [characterState, actions]);
+    actions[characterState].reset().fadeIn(0.2).play();
+    return () => {
+      actions[characterState].fadeOut(0.2);
+    };
+  }, [characterState]);
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene">
-        <group name="Root003" scale={0.64}>
-          <primitive object={nodes.LeftFootCtrl} />
-          <primitive object={nodes.RightFootCtrl} />
-          <primitive object={nodes.HipsCtrl} />
-          <skinnedMesh
-            name="characterMedium"
-            geometry={nodes.characterMedium.geometry}
-            material={materials['skin.001']}
-            skeleton={nodes.characterMedium.skeleton}
-          />
-        </group>
+    <group name="Scene">
+      <group name="model" position={[0.008, 0.008, 0.036]} scale={0.64}>
+        <primitive object={nodes.LeftFootCtrl} />
+        <primitive object={nodes.RightFootCtrl} />
+        <primitive object={nodes.HipsCtrl} />
+        <skinnedMesh name="characterMedium" geometry={nodes.characterMedium.geometry} material={materials['skin.005']} skeleton={nodes.characterMedium.skeleton} />
       </group>
     </group>
+  </group>
   );
 }
 
