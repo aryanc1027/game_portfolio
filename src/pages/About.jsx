@@ -12,8 +12,7 @@ export const About = () => {
         </h1>
         <p className="text-white/70 text-lg sm:text-xl max-w-3xl mx-auto">
           Computer Science and Applied Mathematics double major at UNC Chapel
-          Hill, passionate about problem-solving and exploring the intersection
-          of technology and human interaction.
+          Hill
         </p>
       </div>
 
