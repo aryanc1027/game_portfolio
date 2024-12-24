@@ -25,7 +25,7 @@ export const About = () => {
             {
               title: "Speedi Delivery",
               color: "bg-[#4d9cd9]",
-              content: "As Chief Technology Officer, I've spearheaded numerous technological initiatives that have transformed our delivery operations. Through innovative solutions and strategic implementation, we've achieved remarkable growth, successfully completing over 10,000 deliveries in our first six months. This milestone not only demonstrates our operational efficiency but also highlights our commitment to providing reliable and swift delivery services to our community. My role involves overseeing the entire technical infrastructure, from optimizing delivery routes to implementing real-time tracking systems."
+              content: "As Chief Technology Officer, I've spearheaded numerous technological initiatives that have transformed our delivery operations. Through innovative solutions and strategic implementation, we've achieved remarkable growth, successfully completing over 10,000 deliveries in our first six months. This milestone not only demonstrates our operational efficiency but also highlights our commitment to providing reliable and swift delivery services to our community."
             },
             {
               title: "TechX",
