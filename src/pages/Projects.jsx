@@ -63,12 +63,11 @@ export const Projects = () => {
             <div
               key={project.name}
               className="glass-card p-4 sm:p-6 border border-white/5 bg-white/5 rounded-xl
-                         hover:bg-white/10 transition-all duration-500
                          shadow-[0_8px_30px_rgb(0,0,0,0.12)]
-                         hover:shadow-[0_15px_30px_rgba(59,130,246,0.1)]
-                         hover:border-white/20
-                         hover:translate-y-[-4px]
-                         transform-gpu"
+                         transform-gpu
+                         sm:hover:bg-white/10 sm:hover:shadow-[0_15px_30px_rgba(59,130,246,0.1)]
+                         sm:hover:border-white/20 sm:hover:translate-y-[-4px]
+                         transition-all duration-500"
             >
               <div className="flex items-center mb-3 sm:mb-4">
                 <div
