@@ -96,12 +96,12 @@ export const HorizontalNavbar = () => {
             isMenuOpen ? 'block' : 'hidden'
           } md:hidden fixed top-0 left-0 w-screen h-screen bg-[#1a1f35] flex items-center justify-center z-[101]`}
         >
-          <div className="flex flex-col items-center space-y-6">
+          <div className="flex flex-col items-center justify-center text-center w-full space-y-6">
             {navItems.map((item, index) => (
               <Link
                 key={index}
                 to={item.to}
-                className="text-white text-2xl hover:text-[#9e69da] font-medium transition-all duration-300 block py-1"
+                className="text-white text-2xl hover:text-[#9e69da] font-medium transition-all duration-300 block py-1 w-full"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.text}

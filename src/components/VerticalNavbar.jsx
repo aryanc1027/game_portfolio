@@ -55,7 +55,7 @@ export const VerticalNavbar = () => {
       <div 
         className={`${
           isMenuOpen ? 'block' : 'hidden'
-        } md:block fixed md:static top-0 left-0 w-screen h-screen md:w-auto md:h-auto bg-[#1a1f35] md:bg-transparent z-[90] flex items-center justify-center md:block`}
+        } md:block fixed md:static top-0 left-0 w-screen h-screen md:w-auto md:h-auto bg-[#1a1f35] md:bg-transparent z-[90] flex items-center justify-center`}
       >
         <ul className="list-none p-0 m-0 space-y-6 md:space-y-2 md:flex md:flex-col md:gap-4">
           <li className="my-1">
