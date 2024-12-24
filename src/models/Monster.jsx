@@ -15,6 +15,11 @@ export function Monster() {
     minX: -10,
   });
 
+  // Update initial position for mobile users
+  const isMobile = window.innerWidth <= 768; // Example condition for mobile
+  const initialPositionX = isMobile ? -16 : -36; // Set initial position based on device
+  const turnAroundX = isMobile ? 15 : 37; // Set turn around position based on device
+
   useEffect(() => {
     if (actions['Take 001']) {
       actions['Take 001'].play();
@@ -26,11 +31,13 @@ export function Monster() {
 
     monsterRef.current.position.x +=
       pathRef.current.speed * pathRef.current.direction;
+   // console.log('monster position:', monsterRef.current.position.x);
 
-    if (monsterRef.current.position.x >= 37) {
+    // Update turn around conditions for mobile users
+    if (monsterRef.current.position.x >= turnAroundX) {
       pathRef.current.direction = -1;
       monsterRef.current.rotation.y = -Math.PI / 2;
-    } else if (monsterRef.current.position.x <= -37) {
+    } else if (monsterRef.current.position.x <= initialPositionX) {
       pathRef.current.direction = 1;
       monsterRef.current.rotation.y = Math.PI / 2;
     }
@@ -40,7 +47,7 @@ export function Monster() {
   return (
     <mesh
       ref={monsterRef}
-      position={[-36, -4, 0]}
+      position={[initialPositionX, -4, 0]} // Update initial position
       scale={[0.5, 0.5, 0.5]}
       rotation={[0, Math.PI / 2, 0]}
     >

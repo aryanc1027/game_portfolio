@@ -41,17 +41,25 @@ export function Bird() {
     () => paths[Math.floor(Math.random() * paths.length)]
   );
 
-  const startingPositions = [
+  const desktopStartingPositions = [
     [-26, -8, 1],
     [-26, -8, 2],
     [-26, -8, 0],
     [-26, -8, 3],
   ];
 
-  const [startPosition] = React.useState(
-    () =>
-      startingPositions[Math.floor(Math.random() * startingPositions.length)]
-  );
+  const mobileStartingPositions = [
+    [-13, -8, 1],
+    [-13, -8, 2],
+    [-13, -8, 0],
+    [-13, -8, 3],
+  ];
+
+  const [startPosition] = React.useState(() => {
+    const isMobile = window.innerWidth <= 768;
+    const positions = isMobile ? mobileStartingPositions : desktopStartingPositions;
+    return positions[Math.floor(Math.random() * positions.length)];
+  });
 
   useFrame(({ clock, camera }) => {
     const time = clock.getElapsedTime();
@@ -60,10 +68,21 @@ export function Bird() {
     birdRef.current.position.y = path.y;
     birdRef.current.position.z = path.z;
 
-    if (birdRef.current.position.x > camera.position.x + 32) {
-      birdRef.current.rotation.y = Math.PI;
-    } else if (birdRef.current.position.x < camera.position.x - 31) {
-      birdRef.current.rotation.y = 0;
+    //console.log('Bird position:', birdRef.current.position);
+
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      if (birdRef.current.position.x > 15) {
+        birdRef.current.rotation.y = Math.PI;
+      } else if (birdRef.current.position.x < -13) {
+        birdRef.current.rotation.y = 0;
+      }
+    } else {
+      if (birdRef.current.position.x > camera.position.x + 32) {
+        birdRef.current.rotation.y = Math.PI;
+      } else if (birdRef.current.position.x < camera.position.x - 31) {
+        birdRef.current.rotation.y = 0;
+      }
     }
 
     if (birdRef.current.rotation.y === 0) {

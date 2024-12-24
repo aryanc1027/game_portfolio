@@ -10,11 +10,7 @@ import Loader from '../components/Loader';
 export const Projects = () => {
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerWidth >= 768) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = 'auto';
-      }
+      document.body.style.overflow = 'auto';
     };
 
     // Initial call
