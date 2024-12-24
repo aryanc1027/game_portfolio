@@ -43,13 +43,13 @@ const Contact = () => {
       </div>
 
       <div className="relative z-[3] w-full h-full py-20 md:py-0 px-4 md:px-8 flex items-start md:items-center justify-center">
-        <div className="max-w-4xl w-full bg-[#1a1f35]/80 rounded-3xl p-6 md:p-12 text-white">
+        <div className="max-w-4xl w-full bg-[#1a1f35] rounded-3xl p-6 md:p-12 text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 md:mb-12 text-center">Let's Connect!</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-8">
             {/* Email Section */}
             <div
-              className="bg-[#1a1f35]/50 rounded-2xl p-6 md:p-8 hover:bg-[#2a2f45]/70 
+              className="bg-[#2a2f45] rounded-2xl p-6 md:p-8 hover:bg-[#2a2f45]/70 
               transition-all duration-300 hover:scale-105 hover:translate-y-[-8px] hover:shadow-xl"
             >
               <h2 className="text-2xl md:text-3xl font-semibold mb-4 md:mb-6">Email</h2>
@@ -71,7 +71,7 @@ const Contact = () => {
 
             {/* LinkedIn Section */}
             <div
-              className="bg-[#1a1f35]/50 rounded-2xl p-6 md:p-8 hover:bg-[#2a2f45]/70 
+              className="bg-[#2a2f45] rounded-2xl p-6 md:p-8 hover:bg-[#2a2f45]/70 
               transition-all duration-300 hover:scale-105 hover:translate-y-[-8px] hover:shadow-xl"
             >
               <h2 className="text-2xl md:text-3xl font-semibold mb-4 md:mb-6">LinkedIn</h2>
@@ -87,7 +87,7 @@ const Contact = () => {
 
             {/* GitHub Section */}
             <div
-              className="bg-[#1a1f35]/50 rounded-2xl p-6 md:p-8 hover:bg-[#2a2f45]/70 
+              className="bg-[#2a2f45] rounded-2xl p-6 md:p-8 hover:bg-[#2a2f45]/70 
               transition-all duration-300 hover:scale-105 hover:translate-y-[-8px] hover:shadow-xl"
             >
               <h2 className="text-2xl md:text-3xl font-semibold mb-4 md:mb-6">GitHub</h2>
@@ -103,7 +103,7 @@ const Contact = () => {
 
             {/* Quick Message Section */}
             <div
-              className="bg-[#1a1f35]/50 rounded-2xl p-6 md:p-8 hover:bg-[#2a2f45]/70 
+              className="bg-[#2a2f45] rounded-2xl p-6 md:p-8 hover:bg-[#2a2f45]/70 
               transition-all duration-300 hover:scale-105 hover:translate-y-[-8px] hover:shadow-xl"
             >
               <h2 className="text-2xl md:text-3xl font-semibold mb-4 md:mb-6">Quick Message</h2>
