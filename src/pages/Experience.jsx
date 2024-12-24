@@ -27,11 +27,11 @@ export const Experience = () => {
               <div
                 className="relative aspect-square rounded-xl sm:rounded-2xl bg-[#1a1f35]/80 
                             border border-white/10
-                            hover:bg-white/10 transition-all duration-500 p-3 sm:p-6
+                            sm:hover:bg-white/10 transition-all duration-500 p-3 sm:p-6
                             shadow-[0_8px_30px_rgb(0,0,0,0.12)]
-                            hover:shadow-[0_15px_30px_rgba(59,130,246,0.1)]
-                            hover:border-white/20
-                            hover:translate-y-[-4px]
+                            sm:hover:shadow-[0_15px_30px_rgba(59,130,246,0.1)]
+                            sm:hover:border-white/20
+                            sm:hover:translate-y-[-4px]
                             group"
               >
                 <div className="flex justify-center items-center h-full">
@@ -39,7 +39,7 @@ export const Experience = () => {
                     src={skill.imageUrl}
                     alt={skill.name}
                     className="w-2/3 sm:w-3/5 h-2/3 sm:h-3/5 object-contain transition-all duration-500
-                             group-hover:scale-110 group-hover:brightness-110"
+                             sm:group-hover:scale-110 sm:group-hover:brightness-110"
                   />
                 </div>
               </div>
