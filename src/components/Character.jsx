@@ -31,7 +31,7 @@ export default function Character(props) {
           <skinnedMesh
             name="characterMedium"
             geometry={nodes.characterMedium.geometry}
-            material={materials['skin.001']}
+            material={materials['skin.003']}
             skeleton={nodes.characterMedium.skeleton}
           />
         </group>
