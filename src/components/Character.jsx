@@ -13,10 +13,10 @@ export default function Character(props) {
     // Keep animation transitions smooth
 
     if (actions && actions[characterState]) {
-      actions[characterState].reset().fadeIn(0).play();
+      actions[characterState].reset().fadeIn(0.2).play();
       return () => {
         if (actions[characterState]) {
-          actions[characterState].fadeOut(0);
+          actions[characterState].fadeOut(0.2);
         }
       };
     }
