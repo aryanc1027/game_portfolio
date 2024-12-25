@@ -8,4 +8,5 @@ Bird & Monster made by [NORBERTO-3D]:
 1. https://sketchfab.com/3d-models/phoenix-bird-844ba0cf144a413ea92c779f18912042
 2. https://sketchfab.com/3d-models/monster-efd2c7fefaf94ad1a53fd40081d56757#download
 
-# npx prettier --write .
+Man Model: https://www.kenney.nl/
+
