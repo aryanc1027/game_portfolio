@@ -9,7 +9,20 @@ export const HorizontalNavbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
-      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile) {
+        if (currentScrollPos < 30) {
+          // Start showing navbar slightly before reaching the top
+          setVisible(true);
+        } else {
+          // Not at the top - always hide on mobile
+          setVisible(false);
+        }
+      } else {
+        // Desktop behavior: show when scrolling up, hide when scrolling down
+        setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      }
       setPrevScrollPos(currentScrollPos);
     };
 
@@ -19,12 +32,16 @@ export const HorizontalNavbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) { // Adjust this breakpoint as needed
-        document.body.style.paddingTop = '60px'; // Adjust this value to match your navbar height
+      if (window.innerWidth < 768) { 
+        document.body.style.paddingTop = '60px'; 
       } else {
         document.body.style.paddingTop = '10px';
       }
 
+      // Reset visibility when resizing
+      if (window.innerWidth >= 768) {
+        setVisible(true);
+      }
     };
 
     handleResize(); // Call once to set initial state
