@@ -41,6 +41,21 @@ export const Experience = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [setHasPlayerMoved]);
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      document.body.style.overflow = 'hidden';
+    };
+
+    handleScroll();
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('resize', handleScroll);
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
