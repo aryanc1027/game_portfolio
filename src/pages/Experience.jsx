@@ -11,7 +11,7 @@ export const Experience = () => {
   return (
     <section className="min-h-screen bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] px-4 sm:px-6 pt-8 pb-8 sm:py-16">
       <div className="fixed inset-0 z-0">
-        {/* Any background Canvas or 3D elements should go here */}
+
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -55,7 +55,7 @@ export const Experience = () => {
 
         <div className="glass-card mb-8 sm:mb-16 p-4 sm:p-8 border border-white/5 bg-white/5">
           <p className="text-white/90 text-base sm:text-lg text-center font-light tracking-wide">
-            I've worked with a variety of companies and organizations level up
+            I've worked with a variety of companies and organizations to level up
             my skills. Here's the rundown:
           </p>
         </div>
@@ -96,9 +96,7 @@ export const Experience = () => {
                   {experience.title}
                 </h3>
                 <p className="font-medium opacity-80 text-sm sm:text-base">
-                  {experience.company_name === 'CS-XL' 
-                    ? 'No link available' 
-                    : experience.company_name}
+                  {experience.company_name}
                 </p>
                 <ul className="space-y-2 sm:space-y-3 mt-4 sm:mt-6">
                   {experience.points.map((point, index) => (
