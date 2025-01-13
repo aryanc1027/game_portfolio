@@ -13,14 +13,11 @@ export const HorizontalNavbar = () => {
 
       if (isMobile) {
         if (currentScrollPos < 30) {
-          // Start showing navbar slightly before reaching the top
           setVisible(true);
         } else {
-          // Not at the top - always hide on mobile
           setVisible(false);
         }
       } else {
-        // Desktop behavior: show when scrolling up, hide when scrolling down
         setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
       }
       setPrevScrollPos(currentScrollPos);
