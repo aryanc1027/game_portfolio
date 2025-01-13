@@ -47,7 +47,7 @@ export function Monster() {
   return (
     <mesh
       ref={monsterRef}
-      position={[initialPositionX, -4, 0]} // Update initial position
+      position={[initialPositionX, -6, 0]} // Update initial position
       scale={[0.5, 0.5, 0.5]}
       rotation={[0, Math.PI / 2, 0]}
     >
