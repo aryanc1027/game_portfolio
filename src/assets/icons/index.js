@@ -33,6 +33,7 @@ import camera from './camera.svg';
 import linkedin from './linkedin.svg';
 import room from './room.svg';
 import arrow from './arrow.svg';
+import plane from './plane.svg';
 
 export {
   angular,
@@ -70,4 +71,5 @@ export {
   linkedin,
   room,
   arrow,
+  plane,
 };

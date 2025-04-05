@@ -34,6 +34,7 @@ import {
   camera,
   linkedin,
   room,
+  plane,
   arrow,
 } from '../assets/icons';
 
@@ -241,6 +242,14 @@ export const projects = [
     description:
       'Developed a web application that combines weather data with music recommendations, creating a unique user experience. The application integrates the OpenWeatherMap API to fetch real-time weather information for any city globally, and the Spotify API to suggest playlists based on the current weather conditions..',
     link: 'https://github.com/aryanc1027/MoodCast',
+  },
+  {
+    iconUrl: plane,
+    theme: 'btn-back-blue',
+    name: 'TravelAI',
+    description:
+      'Built an AI-powered travel planning mobile app using React Native, integrating Firebase Authentication, Mapbox, Unsplashed, API Ninja, and the Google Gemini API\'s to provide personalized trip recommendations, real-time itinerary generation, and seamless cross-platform support.',
+    link: 'https://github.com/aryanc1027/travel-planner',
   },
   {
     iconUrl: news,
