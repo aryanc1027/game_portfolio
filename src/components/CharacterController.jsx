@@ -9,8 +9,8 @@ import * as THREE from 'three';
 
 const JUMP_FORCE = 0.5;
 const MOVEMENT_SPEED = 0.15;
-const MOBILE_MOVEMENT_SPEED = 0.08;
-const MOBILE_MAX_SPEED = 0.10;
+const MOBILE_MOVEMENT_SPEED = 0.03;
+const MOBILE_MAX_SPEED = 0.05;
 const MAX_VEL = 3;
 const RUN_VEL = 0.25;
 const TOUCH_SENSITIVITY = 0.05;
