@@ -2,29 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export const HorizontalNavbar = () => {
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      const isMobile = window.innerWidth < 768;
-
-        if (currentScrollPos < 30) {
-          // Start showing navbar slightly before reaching the top
-          setVisible(true);
-        } else {
-          // Not at the top - always hide on mobile
-          setVisible(false);
-        }
-  
-      setPrevScrollPos(currentScrollPos);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScrollPos]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,11 +10,6 @@ export const HorizontalNavbar = () => {
         document.body.style.paddingTop = '60px'; 
       } else {
         document.body.style.paddingTop = '10px';
-      }
-
-      // Reset visibility when resizing
-      if (window.innerWidth >= 768) {
-        setVisible(true);
       }
     };
 
@@ -50,6 +23,7 @@ export const HorizontalNavbar = () => {
   }, []);
 
   const toggleMenu = () => {
+    console.log('Toggle menu clicked, current state:', isMenuOpen);
     setIsMenuOpen(!isMenuOpen);
   };
 
@@ -62,11 +36,9 @@ export const HorizontalNavbar = () => {
 
   return (
     <>
-      <nav
-        className={`p-4 w-screen max-w-full bg-[#1a1f35] fixed top-0 left-0 z-[100] transition-transform duration-150 ${
-          visible ? 'translate-y-0' : '-translate-y-full'
-        }`}
-      >
+    <nav
+  className="relative z-[1000] p-4 pt-2 w-screen max-w-full bg-[#1a1f35] transition-transform duration-150 translate-y-0"
+>
         <div className="flex justify-between items-center w-full relative z-[102]">
           <Link
             to="/"
@@ -87,7 +59,10 @@ export const HorizontalNavbar = () => {
           </div>
           <button
             className="md:hidden text-white focus:outline-none flex flex-col gap-1.5 bg-transparent border-none p-0 z-[102]"
-            onClick={toggleMenu}
+            onClick={() => {
+              console.log('Button clicked!');
+              toggleMenu();
+            }}
             style={{ background: 'none' }}
           >
             {isMenuOpen ? (
@@ -106,10 +81,10 @@ export const HorizontalNavbar = () => {
         </div>
         <div 
           className={`${
-            isMenuOpen ? 'block' : 'hidden'
-          } md:hidden fixed top-0 left-0 w-screen h-screen bg-[#1a1f35] flex items-center justify-center z-[101]`}
+            isMenuOpen ? 'flex' : 'hidden'
+          } md:hidden fixed left-0 top-8 w-screen h-[calc(100vh-56px)] bg-[#1a1f35] z-[1100] flex-col items-center justify-center`}
         >
-          <div className="flex flex-col items-center justify-center text-center w-full space-y-6">
+          <div className="flex flex-col items-center justify-start mb-20 pb-20 text-center w-full space-y-6 ">
             {navItems.map((item, index) => (
               <Link
                 key={index}

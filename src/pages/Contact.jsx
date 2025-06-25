@@ -24,7 +24,7 @@ const Contact = () => {
 
   return (
     <div className="relative min-h-screen md:h-screen overflow-auto bg-[#1a1f35]">
-      <div className="fixed top-0 left-0 w-full h-full z-[1] pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-full z-0">
         <Canvas
           orthographic
           camera={{

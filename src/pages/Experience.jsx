@@ -10,10 +10,6 @@ import '../index.css';
 export const Experience = () => {
   return (
     <section className="min-h-screen bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] px-4 sm:px-6 pt-8 pb-8 sm:py-16 pt-[60px]">
-      <div className="fixed inset-0 z-0">
-
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="glass-card mb-6 sm:mb-16 p-4 sm:p-8 text-center border border-white/5 bg-white/5">
           <p className="text-white/90 text-xl sm:text-2xl font-bold tracking-wide">
