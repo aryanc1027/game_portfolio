@@ -8,11 +8,11 @@ import Character from './Character';
 import * as THREE from 'three';
 
 const JUMP_FORCE = 0.5;
-const MOVEMENT_SPEED = 0.1;
-const MOBILE_MOVEMENT_SPEED = 0.034;
-const MOBILE_MAX_SPEED = 0.036;
+const MOVEMENT_SPEED = 0.15;
+const MOBILE_MOVEMENT_SPEED = 0.08;
+const MOBILE_MAX_SPEED = 0.10;
 const MAX_VEL = 3;
-const RUN_VEL = 1.5;
+const RUN_VEL = 0.25;
 const TOUCH_SENSITIVITY = 0.05;
 const JOYSTICK_RADIUS = 50;
 const DEAD_ZONE = 10;

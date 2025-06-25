@@ -1,4 +1,4 @@
-import { speedi, lpl, industryapps } from '../assets/images';
+import { speedi, lpl, industryapps, cern } from '../assets/images';
 import {
   angular,
   aws,
@@ -36,6 +36,7 @@ import {
   room,
   plane,
   arrow,
+
 } from '../assets/icons';
 
 export const skills = [
@@ -188,6 +189,20 @@ export const skills = [
 ];
 
 export const experiences = [
+  {
+    title: 'Software Engineering Intern',
+    company_name: 'CERN',
+    iconBg: 'white',
+    icon: cern,
+    date: 'May 2025 - August 2025',
+    points: [
+      'Designed and implemented a real-time 3D visualization system for LINAC4 and SPS subsystem health monitoring using C++ and ROOT, improving fault detection and diagnostics for CERN’s accelerator infrastructure.',
+      'Replaced legacy CERN login systems by developing a secure role-based access control (RBAC) system, enhancing data governance and user management across internal tools.',
+      'Deployed the RBAC infrastructure on OpenShift/Kubernetes, providing scalable access management now used by over 2,500 CERN personnel.',
+      'Built full-stack operational tools using React (TypeScript), Spring Boot (Java), OracleDB, and Kubernetes to streamline control room workflows and improve system reliability.',
+      'Automated testing, deployment, and version control across distributed microservices via GitLab CI/CD pipelines integrated with OpenShift.',
+    ],
+  },
   {
     title: 'Chief Technology Officer',
     company_name: 'Speedi Delivery',

@@ -63,7 +63,7 @@ export const HorizontalNavbar = () => {
   return (
     <>
       <nav
-        className={`p-4 w-screen max-w-full bg-[#1a1f35] fixed top-0 left-0 z-[100] transition-transform duration-300 ${
+        className={`p-4 w-screen max-w-full bg-[#1a1f35] fixed top-0 left-0 z-[100] transition-transform duration-150 ${
           visible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >

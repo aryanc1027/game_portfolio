@@ -9,7 +9,7 @@ import '../index.css';
 
 export const Experience = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] px-4 sm:px-6 pt-8 pb-8 sm:py-16">
+    <section className="min-h-screen bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] px-4 sm:px-6 pt-8 pb-8 sm:py-16 pt-[60px]">
       <div className="fixed inset-0 z-0">
 
       </div>

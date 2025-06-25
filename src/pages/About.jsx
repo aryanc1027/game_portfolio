@@ -2,7 +2,7 @@ import React from 'react';
 
 export const About = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] px-4 sm:px-6 py-8 sm:py-16 relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] px-4 sm:px-6 py-8 sm:py-16 relative overflow-hidden pt-[60px]">
       {/* Header Section - Centered */}
       <div className="text-center mb-16 sm:mb-32">
         <h1 className="text-4xl sm:text-6xl font-bold mb-4 sm:mb-8">
