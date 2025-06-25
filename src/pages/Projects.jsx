@@ -27,7 +27,7 @@ export const Projects = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] px-4 sm:px-6 py-8 sm:py-16 relative pt-[60px]">
+    <section className="min-h-[100dvh] bg-gradient-to-b from-[#1a1f35] to-[#2a2f45] px-4 sm:px-6 py-8 sm:py-16 relative pt-[60px]">
 
       <div className="absolute inset-0 z-0">
         <Canvas
