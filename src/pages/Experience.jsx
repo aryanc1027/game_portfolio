@@ -49,7 +49,7 @@ export const Experience = () => {
           Work Experience
         </h3>
 
-        <div className="glass-card mb-8 sm:mb-16 p-4 sm:p-8 border border-white/5 bg-white/5">
+        <div className="glass-card mb-8 sm:mb-16 p-4 sm:mb-8 border border-white/5 bg-white/5">
           <p className="text-white/90 text-base sm:text-lg text-center font-light tracking-wide">
             I've worked with a variety of companies and organizations to level up
             my skills. Here's the rundown:
@@ -78,13 +78,23 @@ export const Experience = () => {
                 borderRight: '7px solid rgba(255, 255, 255, 0.05)',
               }}
               icon={
-                <div className="flex justify-center items-center w-full h-full p-2">
-                  <img
-                    src={experience.icon}
-                    alt={experience.company_name}
-                    className="w-[60%] h-[60%] object-contain"
-                  />
-                </div>
+                experience.company_name === 'CERN' ? (
+                  <div className="flex justify-center items-center w-full h-full overflow-hidden rounded-full">
+                    <img
+                      src={experience.icon}
+                      alt={experience.company_name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex justify-center items-center w-full h-full p-1.5">
+                    <img
+                      src={experience.icon}
+                      alt={experience.company_name}
+                      className="w-[72%] h-[72%] object-contain"
+                    />
+                  </div>
+                )
               }
             >
               <div className="text-white space-y-3 sm:space-y-4">
