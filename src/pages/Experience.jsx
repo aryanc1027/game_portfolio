@@ -78,7 +78,7 @@ export const Experience = () => {
                 borderRight: '7px solid rgba(255, 255, 255, 0.05)',
               }}
               icon={
-                experience.company_name === 'CERN' ? (
+                experience.company_name === 'CERN' || experience.company_name === 'Plaid' ? (
                   <div className="flex justify-center items-center w-full h-full overflow-hidden rounded-full">
                     <img
                       src={experience.icon}

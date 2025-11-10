@@ -1,4 +1,4 @@
-import { speedi, lpl, industryapps, cern } from '../assets/images';
+import { speedi, lpl, industryapps, cern, plaid } from '../assets/images';
 import {
   angular,
   aws,
@@ -189,6 +189,14 @@ export const skills = [
 ];
 
 export const experiences = [
+  {
+    title: 'Incoming Software Engineer',
+    company_name: 'Plaid',
+    iconBg: 'white',
+    icon: plaid,
+    date: 'July 2026',
+    points:[]
+  },
   {
     title: 'Software Engineering Intern',
     company_name: 'CERN',
